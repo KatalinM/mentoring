@@ -1,6 +1,8 @@
 # Python API for learning   
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import JSONResponse
+from starlette.status import HTTP_404_NOT_FOUND
 from pydantic import BaseModel
 from typing import Optional, List
 
@@ -43,7 +45,7 @@ def list_users():
     """List all users"""
     return users_db
 
-@app.get("/users/{user_id}, response_model=User")
+@app.get("/users/{user_id}", response_model=User)
 def get_user(user_id: int):
     """Get a specific user by ID"""
     for user in users_db:
@@ -113,5 +115,24 @@ def delete_mission(mission_id: int):
             return {"message": "Mission deleted", "mission": deleted_mission}
     raise HTTPException(status_code=404, detail="Mission not found")
 
+# Middleware to catch 404 errors and return custom message
+@app.middleware("http")
+async def catch_404_middleware(request: Request, call_next):
+    response = await call_next(request)
+    if response.status_code == HTTP_404_NOT_FOUND:
+        return JSONResponse(
+            status_code=404,
+            content={"message": "This endpoint does not exist. Please check the API documentation, URL and method."}
+        )
+    return response
 
-
+# Middleware to catch 422 errors and return custom message
+@app.middleware("http")
+async def catch_404_middleware(request: Request, call_next):
+    response = await call_next(request)
+    if response.status_code == 422:
+        return JSONResponse(
+            status_code=422,
+            content={"message": "Please check the API documentation, a mandatory field might be missing or has an invalid value."}
+        )
+    return response
