@@ -122,13 +122,13 @@ async def catch_404_middleware(request: Request, call_next):
     if response.status_code == HTTP_404_NOT_FOUND:
         return JSONResponse(
             status_code=404,
-            content={"message": "This endpoint does not exist. Please check the API documentation, URL and method."}
+            content={"detail": "This endpoint does not exist. Please check the API documentation, URL and method."}
         )
     return response
 
 # Middleware to catch 422 errors and return custom message
 @app.middleware("http")
-async def catch_404_middleware(request: Request, call_next):
+async def catch_422_middleware(request: Request, call_next):
     response = await call_next(request)
     if response.status_code == 422:
         return JSONResponse(

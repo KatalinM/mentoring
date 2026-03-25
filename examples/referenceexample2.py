@@ -1,5 +1,5 @@
-from referenceexample import some_db
-import referenceexample
+from examples.referenceexample import some_db
+import examples.referenceexample as referenceexample
 
 # MUTATION OF IMPORTED DATA
 # When you import some_db from referenceexample, it will point to the original some_db list
