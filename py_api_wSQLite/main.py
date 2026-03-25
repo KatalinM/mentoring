@@ -4,9 +4,10 @@ from fastapi.concurrency import asynccontextmanager
 from data_models.mission import Mission
 #from sqlite_db.database import create_table_query, insert_mission_query, insert_agent_query
 from sqlite_db.database import add_agent, add_mission, init_db
-import sqlite3
 
-app = FastAPI()
+# parameters only optional for better documentation, not required for the API to work
+# app = FastAPI() is also fine 
+app = FastAPI(title="Mission Management API", description="only for learning purposes", version="1.0.0") 
 
 def main():
     # Create the database if not exists and add a sample mission and agents to it
@@ -16,16 +17,3 @@ def main():
 if __name__ == "__main__":
     main()    
 
-@app.post("/missions")
-def create_mission(mission: Mission):
-    # Old version of create_mission endpoint, using in-memory list to store missions
-    """
-    global next_mission_id
-    mission.id = next_mission_id
-    missions_db.append(mission)
-    next_mission_id += 1
-    return mission
-    """
-    # New version of create_mission endpoint, using SQLite database to store missions
-    add_mission(mission)
-    return mission
