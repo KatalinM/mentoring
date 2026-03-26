@@ -6,9 +6,7 @@ from crud.agent_crud import add_agent
 from crud.mission_crud import add_mission
 
 database = 'missions.db'
-
 create_tables = [create_missions_table_query, create_agents_table_query]
-
 
 def init_db():
     try:
@@ -33,6 +31,11 @@ def init_db():
     except sqlite3.OperationalError as error:
         print(f"Error connecting to missions database: {error}")
 
-# connection is established in the init_db function, so we can pass the connection object to the add_mission function   
-
-
+def get_db():
+    try:
+        conn = sqlite3.connect(database)
+        print("Database connection successful.")
+        print("Database path: {}".format(os.path.abspath(database)))
+        return conn
+    except sqlite3.OperationalError as error:
+        print(f"Error connecting to missions database: {error}")
