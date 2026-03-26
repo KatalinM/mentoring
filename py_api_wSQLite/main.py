@@ -1,12 +1,13 @@
 from fastapi import FastAPI
 from sqlite_db.database import init_db
-from routers import mission_router
+from routers import mission_router, agent_router
 import uvicorn
 
 # parameters only optional for better documentation, not required for the API to work
 # app = FastAPI() is also fine 
 app = FastAPI(title="Mission Management API", description="only for learning purposes", version="1.0.0")
-app.include_router(mission_router.router, prefix="/missions")
+app.include_router(mission_router.router, prefix="/missions") # here we created the prefix for the mission router, so we don't have to add it to each endpoint in the mission_router.py file!
+app.include_router(agent_router.router, prefix="/agents") # the same as above for the missions router
 
 def main():
     # Create the database if not exists and add a sample mission and agents to it

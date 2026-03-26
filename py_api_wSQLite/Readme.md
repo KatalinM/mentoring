@@ -63,9 +63,8 @@ Missions
 
 ## 📌 Notes
 
-- If the server uses FastAPI, you may also see auto docs at `http://127.0.0.1:8000/docs` and `http://127.0.0.1:8000/redoc`.
-- If database file is created in a local folder, inspect it with `sqlite3` CLI or SQLite browser.
+- If database file is created in the local folder, inspect it with `sqlite viewer` - you can install the VS Code plugin
+    SQLite Viewer
 
----
 
 Enjoy building agent/mission workflows with SQLite!
