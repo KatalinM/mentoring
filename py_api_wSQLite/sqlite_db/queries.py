@@ -7,14 +7,17 @@ create_missions_table_query = """
         target_id INTEGER,
         status VARCHAR(255) NOT NULL,
         reward REAL NOT NULL,
-        agent VARCHAR NOT NULL
+        agent VARCHAR,
+        FOREIGN KEY (agent) REFERENCES agents(codename)
+          ON DELETE SET NULL
+          ON UPDATE CASCADE
     )
 """
 create_agents_table_query = """
     CREATE TABLE IF NOT EXISTS agents (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name VARCHAR(255) NOT NULL,
-        codename VARCHAR(255) NOT NULL,
+        codename VARCHAR(255) NOT NULL UNIQUE,
         description VARCHAR,
         active BOOLEAN NOT NULL
     )

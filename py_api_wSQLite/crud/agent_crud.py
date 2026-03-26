@@ -1,4 +1,6 @@
 import sqlite3
+
+from fastapi import HTTPException
 from data_models.agent import Agent
 from sqlite_db.queries import add_agent_query
 
@@ -9,8 +11,12 @@ def add_agent(conn, agent):
         conn.commit()
         agent_id = cursor.lastrowid
         print(f"Agent with ID {agent_id} added successfully to the database.")
+    except sqlite3.IntegrityError as error:
+        print(f"Agent with codename '{agent.code_name}' already exists")
+        raise HTTPException(status_code=409, detail=f"Agent with codename '{agent.code_name}' already exists: {error}")
     except sqlite3.Error as error:
         print(f"Error adding agent to the database: {error}")
+        raise HTTPException(status_code=500, detail=f"Error adding agent to the database: {error}")
 
 def get_all_agents(conn):
     try:
