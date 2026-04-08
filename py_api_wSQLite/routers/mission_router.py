@@ -1,7 +1,7 @@
 from fastapi import APIRouter, FastAPI
 import sqlite3
 from fastapi import Depends
-from sqlite_db.database import get_db
+from sqlite_db.db_manager import get_db
 import crud.mission_crud as mission_crud
 from data_models.mission import Mission
 from fastapi import APIRouter
@@ -25,3 +25,7 @@ def create_mission(mission: Mission, conn: sqlite3.Connection = Depends(get_db))
 @router.get("/")
 def get_missions(conn: sqlite3.Connection = Depends(get_db)):
     return mission_crud.get_all_missions(conn)
+
+@router.get("/agent")
+def get_missions_with_agents(conn: sqlite3.Connection = Depends(get_db), code_name: str = None):
+    return mission_crud.get_missions_with_agents(conn, code_name)

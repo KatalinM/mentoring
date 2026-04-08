@@ -1,12 +1,12 @@
 import os
 import sqlite3
-from sqlite_db.queries import create_missions_table_query, create_agents_table_query
-from py_api_wSQLite.constants import TESTMISSION, TESTAGENTS 
+from sqlite_db import queries
+from constants import TESTMISSION, TESTAGENTS 
 from crud.agent_crud import add_agent
 from crud.mission_crud import add_mission
 
 database = 'sqlite_database.db'
-create_tables = [create_missions_table_query, create_agents_table_query]
+create_tables = [queries.create_missions_table_query, queries.create_agents_table_query]
 
 def init_db():
     try:

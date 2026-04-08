@@ -1,6 +1,6 @@
 # This file contains the SQL queries used to create the missions and agents tables, as well as the queries to add new missions and agents to the database.
 create_missions_table_query = """
-    CREATE TABLE IF NOT EXISTS missions (
+    CREATE c IF NOT EXISTS missions (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         title VARCHAR(255) NOT NULL,
         target VARCHAR(255),
@@ -31,4 +31,10 @@ add_mission_query = """
 add_agent_query = """
                 INSERT INTO agents (name, codename, description, active)
                 VALUES (?, ?, ?, ?)
+            """
+
+get_missions_with_agents_query = """
+            SELECT a.name, a.codename, m.target, m.reward FROM missions m
+            JOIN agents a ON m.agent = a.codename
+            WHERE a.codename = ?;
             """

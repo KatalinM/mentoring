@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./py_api_wSQLite/sqlite_db"
+    ]
+}
