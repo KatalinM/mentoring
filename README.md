@@ -1,4 +1,6 @@
 # mentoring
-Student mentoring program
+Our first common project
 
-Our OneNote page will move here under [Wiki](https://github.com/KatalinM/mentoring/wiki).
+Smart event planner
+
+The task lists you can find in our [Wiki](https://github.com/KatalinM/mentoring/wiki).
