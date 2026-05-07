@@ -1,0 +1,72 @@
+[
+    {
+        "title": "Test title 1",
+        "target": "Test Target 1",
+        "status": "Pending",
+        "reward": 200.00,
+        "agent": "Baba Yaga"
+    },
+    {
+        "title": "Test title 2",
+        "target": "Test Target 2",
+        "status": "Pending",
+        "reward": 100.00,
+        "agent": "Baba Yaga"
+    }
+    {
+        "title": "Test title 3",
+        "target": "Test Target 3",
+        "status": "Pending",
+        "reward": 1000.00,
+        "agent": "Baba Yaga"
+    }
+    {
+        "title": "Test title 4",
+        "target": "Test Target 4",
+        "status": "Pending",
+        "reward": 500.00,
+        "agent": "Baba Yaga"
+    }
+    {
+        "title": "Test title 5",
+        "target": "Test Target 5",
+        "status": "Pending",
+        "reward": 550.00,
+        "agent": "Baba Yaga"
+    }
+    {
+        "title": "Test title 6",
+        "target": "Test Target 6",
+        "status": "Pending",
+        "reward": 300.00,
+        "agent": "Baba Yaga"
+    }
+    {
+        "title": "Test title 7",
+        "target": "Test Target 7",
+        "status": "Pending",
+        "reward": 1.00,
+        "agent": "Baba Yaga"
+    }
+    {
+        "title": "Test title 8",
+        "target": "Test Target 8",
+        "status": "Pending",
+        "reward": 10000.00,
+        "agent": "Baba Yaga"
+    }
+    {
+        "title": "Test title 9",
+        "target": "Test Target 9",
+        "status": "Pending",
+        "reward": 20000.00,
+        "agent": "Baba Yaga"
+    }
+    {
+        "title": "Test title 10",
+        "target": "Test Target 10",
+        "status": "Pending",
+        "reward": 0.00,
+        "agent": "Baba Yaga"
+    }
+]
