@@ -1,8 +1,9 @@
-from data_models.agent import Agent
-from data_models.mission import Mission
+from py_api_wSQLite.data_models.user import User
+from py_api_wSQLite.data_models.event import Event
 
-TESTMISSION = Mission(title="Test Mission", target="Test Target", target_id=3, status="Urgent", reward=100.0, agent="Test Code Name") 
-TESTAGENT_1 = Agent(name="Test Agent", code_name="Test Code Name", description="Test Description", active=True)
-TESTAGENT_2 = Agent(name="Test Agent 2", code_name="Test Code Name 2", description="Test Description 2", active=False)
+# TODO define the test users based onthe created data models in data_models/user.py and the test event based on the created data model in data_models/event.py
+TESTEVENT = Event() 
+TESTUSER_1 = User()
+TESTUSER_2 = User()
 
-TESTAGENTS = [TESTAGENT_1, TESTAGENT_2]
+TESTUSERS = [TESTUSER_1, TESTUSER_2]
